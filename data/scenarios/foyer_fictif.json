@@ -1,0 +1,96 @@
+{
+  "identifiant_foyer": "foyer-fictif-001",
+  "nombre_occupants": 3,
+  "credit_initial_kwh": 20.0,
+  "date_debut": "2026-08-13T00:00:00+00:00",
+  "date_cible": "2026-08-18T00:00:00+00:00",
+  "pas_minutes": 30,
+  "temperature_interieure_initiale_c": 28.0,
+  "source_temperature_interieure": "estimee",
+  "temperature_exterieure_initiale_c": 32.0,
+  "humidite_initiale_pourcent": 78.0,
+  "source_meteo": "exemple_fictif_sprint_0",
+  "occupation_initiale": true,
+  "appareils": [
+    {
+      "nom": "television",
+      "puissance_w": 80.0,
+      "flexible": false,
+      "decalage_autorise": false,
+      "essentiel": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "18:00",
+          "heure_fin": "23:00",
+          "probabilite_utilisation": 0.85,
+          "duree_moyenne_minutes": 180,
+          "variabilite_minutes": 60
+        }
+      ]
+    },
+    {
+      "nom": "refrigerateur",
+      "puissance_w": 150.0,
+      "flexible": false,
+      "decalage_autorise": false,
+      "essentiel": true,
+      "fenetres_usage": [
+        {
+          "heure_debut": "00:00",
+          "heure_fin": "00:00",
+          "probabilite_utilisation": 1.0,
+          "duree_moyenne_minutes": 1440,
+          "variabilite_minutes": 0
+        }
+      ]
+    },
+    {
+      "nom": "ventilateur",
+      "puissance_w": 60.0,
+      "flexible": true,
+      "decalage_autorise": false,
+      "essentiel": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "12:00",
+          "heure_fin": "23:00",
+          "probabilite_utilisation": 0.70,
+          "duree_moyenne_minutes": 240,
+          "variabilite_minutes": 90
+        }
+      ]
+    },
+    {
+      "nom": "climatisation",
+      "puissance_w": 900.0,
+      "flexible": true,
+      "decalage_autorise": false,
+      "essentiel": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "20:00",
+          "heure_fin": "06:00",
+          "probabilite_utilisation": 0.55,
+          "duree_moyenne_minutes": 240,
+          "variabilite_minutes": 60
+        }
+      ]
+    },
+    {
+      "nom": "fer_a_repasser",
+      "puissance_w": 1200.0,
+      "flexible": true,
+      "decalage_autorise": true,
+      "essentiel": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "17:00",
+          "heure_fin": "20:00",
+          "probabilite_utilisation": 0.30,
+          "duree_moyenne_minutes": 30,
+          "variabilite_minutes": 15
+        }
+      ]
+    }
+  ]
+}
