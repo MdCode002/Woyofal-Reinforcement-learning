@@ -99,7 +99,9 @@ python sprint1_simulation_dakar.py
 python sprint2_stochastique.py
 python sprint3_calibration.py
 
-3. Lancement des tests unitairesBashpython -m pytest tests/
+3. Lancement des tests unitaires
+Bash
+python -m pytest tests/
 
 📊 Formats des Données Exportéesdata/profils_stochastiques.csv :
   .Horodatage, identifiant du ménage et puissance moyenne absorbée (W) toutes les 30 min
