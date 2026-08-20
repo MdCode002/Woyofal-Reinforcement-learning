@@ -55,6 +55,8 @@ ramp/
 ├── sprint1_simulation_dakar.py   # Simulation initiale et contrôle kWh
 ├── sprint2_stochastique.py       # Génération stochastique multi-ménages
 └── sprint3_calibration.py        # Calibration et intégration thermique
+
+
 🚀 Jalons & Fonctionnalités (M1 - M3)
 .M1 / M2 - Appareils & Météo Dakar
   .Catalogue complet : Éclairage, TV, ventilateur, réfrigérateur, fer à repasser, pompe, chauffe-eau, climatiseur
@@ -74,7 +76,7 @@ ramp/
   **Sur Windows (PowerShell) :**
   ```bash
   # Création du venv
-  py -3.11 -m venv venv #pour des raisons de verions
+  py -3.11 -m venv venv #pour des raisons de versions
 
   # Activation du venv
   .\venv\Scripts\Activate.ps1
@@ -99,7 +101,9 @@ python sprint3_calibration.py
 
 3. Lancement des tests unitairesBashpython -m pytest tests/
 
-📊 Formats des Données Exportéesdata/profils_stochastiques.csv : Horodatage, identifiant du ménage et puissance moyenne absorbée (W) toutes les 30 min.data/fiches_compteur_woyofal.csv : Consommation (kWh), crédit restant (kWh) et statut de coupure (0 ou 1).
+📊 Formats des Données Exportéesdata/profils_stochastiques.csv :
+  .Horodatage, identifiant du ménage et puissance moyenne absorbée (W) toutes les 30 min
+  .data/fiches_compteur_woyofal.csv : Consommation (kWh), crédit restant (kWh) et statut de coupure (0 ou 1).
 ````
 
 ### Remarque
