@@ -1,27 +1,67 @@
-# src/catalogue.py
+"""
+Catalogue complet des appareils électroménagers pour Dakar (M2).
+"""
 
-def get_catalogue_sprint0():
-    """Déclaration des 4 appareils de base du Sprint 0."""
-    return [
-        {"nom": "eclairage_led", "puissance_w": 10, "duree_min": 300, "fenetre_usage": (18, 23)},
-        {"nom": "tv_led", "puissance_w": 60, "duree_min": 240, "fenetre_usage": (19, 23)},
-        {"nom": "ventilateur", "puissance_w": 45, "duree_min": 480, "fenetre_usage": (12, 22)},
-        {"nom": "refrigerateur", "puissance_w": 150, "duree_min": 1440, "fenetre_usage": (0, 24)}
-    ]
-
-# ==========================================
-# SPRINT 1 : INCRÉMENT CATALOGUE DAKAR
-# ==========================================
 def get_catalogue_sprint1():
     """
-    Catalogue Sprint 1 : Reprend les appareils de base et affine 
-    les fenêtres d'usage pour un foyer à Dakar.
+    Catalogue complet avec puissance, quantité, fenêtres d'usage, 
+    durée et caractère flexible/inflexible.
     """
-    catalogue = get_catalogue_sprint0()
-    
-    # On peut affiner les plages ou ajouter des équipements types
-    for app in catalogue:
-        if app["nom"] == "ventilateur":
-            app["duree_min"] = 600  # Usage plus intense à Dakar
-            
-    return catalogue
+    return [
+        {
+            "nom": "eclairage_led",
+            "puissance_w": 10,
+            "quantite": 5,
+            "duree_min": 300,
+            "fenetre_usage": (18, 23),
+            "flexible": False
+        },
+        {
+            "nom": "tv_led",
+            "puissance_w": 60,
+            "quantite": 1,
+            "duree_min": 240,
+            "fenetre_usage": (19, 23),
+            "flexible": True
+        },
+        {
+            "nom": "ventilateur",
+            "puissance_w": 45,
+            "quantite": 2,
+            "duree_min": 480,
+            "fenetre_usage": (12, 22),
+            "flexible": True
+        },
+        {
+            "nom": "refrigerateur",
+            "puissance_w": 150,
+            "quantite": 1,
+            "duree_min": 1440,
+            "fenetre_usage": (0, 24),
+            "flexible": False
+        },
+        {
+            "nom": "fer_a_repasser",
+            "puissance_w": 1000,
+            "quantite": 1,
+            "duree_min": 30,
+            "fenetre_usage": (8, 12),
+            "flexible": True
+        },
+        {
+            "nom": "pompe_eau",
+            "puissance_w": 750,
+            "quantite": 1,
+            "duree_min": 45,
+            "fenetre_usage": (6, 9),
+            "flexible": True
+        },
+        {
+            "nom": "chauffe_eau",
+            "puissance_w": 1500,
+            "quantite": 1,
+            "duree_min": 60,
+            "fenetre_usage": (5, 8),
+            "flexible": False
+        }
+    ]
