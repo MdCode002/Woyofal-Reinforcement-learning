@@ -1,0 +1,4 @@
+scenario_id,kWh_mois,Pmax_W,credit_initial_FCFA,cout_mois_estime_FCFA,jour_epuisement_credit
+extreme_chaleur_extreme,204.38,1557.6,25000.0,20438.0,non atteint sur le mois
+extreme_credit_faible,71.53,344.6,350.0,7153.0,2
+extreme_consommation_forte,358.25,2795.8,60000.0,35825.0,non atteint sur le mois
