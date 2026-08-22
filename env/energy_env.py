@@ -8,9 +8,20 @@ from woyofal.meter import WoyofalMeter
 from common.models import Scenario, ProfilChargePas, Observation, Action, ReportCharge
 from common.units import PAS_DECISION_MINUTES, MINUTES_PAR_HEURE, convertir_en_kwh
 
+# COP par defaut de la climatisation.
+# Appareil ou au Scenario par M1/M2 (pour l'instant Appareil n'a pas de champ COP).
+AC_COP_DEFAUT = 3.0
 
-FAN_POWER_W = 100.0 # Puissance provisoire du ventilateur en watts.
- 
+# Valeurs de repli si le scenario ne contient pas d'appareil nomme
+# "climatisation" / "ventilateur" (ne devrait pas arriver avec un vrai scenario).
+FAN_POWER_W_DEFAUT = 60.0
+AC_COOLING_POWER_KW_DEFAUT = 3.0
+
+# Noms d'appareils geres directement par l'environnement (via les actions RL) et
+# non par le profil RAMP, pour eviter de les compter deux fois.
+NOMS_APPAREILS_CONTROLES_PAR_ENV = {"climatisation", "ventilateur"}
+
+
 class EnergyEnv(gym.Env):
     def __init__(
         self,
@@ -40,6 +51,26 @@ class EnergyEnv(gym.Env):
         self.flexible_appareil = next(
             (a for a in scenario.appareils if a.flexible and a.decalage_autorise),
             None,
+        )
+
+        # Puissances electriques reelles de la clim et du ventilo
+        self.ac_appareil = next(
+            (a for a in scenario.appareils if a.nom == "climatisation"), None
+        )
+        self.fan_appareil = next(
+            (a for a in scenario.appareils if a.nom == "ventilateur"), None
+        )
+
+        if self.ac_appareil is not None:
+            electrical_ac_kw = self.ac_appareil.puissance_w / 1000.0
+            self.cooling_power_kw = electrical_ac_kw * AC_COP_DEFAUT
+        else:
+            self.cooling_power_kw = AC_COOLING_POWER_KW_DEFAUT
+
+        self.fan_power_w = (
+            self.fan_appareil.puissance_w
+            if self.fan_appareil is not None
+            else FAN_POWER_W_DEFAUT
         )
 
         # Actions:
@@ -103,8 +134,8 @@ class EnergyEnv(gym.Env):
             T_int=T_int_initial,
             R=2.0,
             C=10.0,
-            cooling_power_kw=3.0,
-            cop=3.0,
+            cooling_power_kw=self.cooling_power_kw,
+            cop=AC_COP_DEFAUT,
         )
 
         self.ac_on = False
@@ -147,6 +178,15 @@ class EnergyEnv(gym.Env):
         profil_pas = self.load_profile[self.step_index]
         non_thermal_energy = profil_pas.energie_non_thermique_totale_kwh
 
+        # Garde-fou anti double-comptage : la clim et le ventilo sont pilotes par
+        # l'action RL (ci-dessous), pas par RAMP. Si le profil RAMP fourni par M2
+        # inclut malgre tout leur energie dans energie_par_appareil_kwh, on la retire
+        # ici pour ne pas la compter deux fois. A confirmer avec M1/M2.
+        for nom_appareil in NOMS_APPAREILS_CONTROLES_PAR_ENV:
+            non_thermal_energy -= profil_pas.energie_par_appareil_kwh.get(
+                nom_appareil, 0.0
+            )
+
         # 1) On réinjecte d'abord l'énergie différée par un report demandé au pas
         #    précédent, puis on remet le compteur de report à zéro.
         non_thermal_energy += self.deferred_flexible_kwh
@@ -163,7 +203,9 @@ class EnergyEnv(gym.Env):
             self.deferred_flexible_kwh += flexible_energy_this_step
 
         fan_energy = (
-            convertir_en_kwh(FAN_POWER_W, PAS_DECISION_MINUTES) if self.fan_on else 0.0
+            convertir_en_kwh(self.fan_power_w, PAS_DECISION_MINUTES)
+            if self.fan_on
+            else 0.0
         )
         ac_energy = self.thermal.electric_consumption_kwh(
             dt_hours=self.dt_hours, ac_on=self.ac_on
