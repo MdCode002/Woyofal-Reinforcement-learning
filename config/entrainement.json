@@ -1,0 +1,46 @@
+{
+  "environnement": {
+    "version_schema": "politique_partagee_pieces_variables_v3",
+    "pas_decision_minutes": 30,
+    "sous_pas_thermique_minutes": 5,
+    "horizon_sans_date_jours": 30,
+    "actions_discretes": 10,
+    "dimensions_observation": 33,
+    "normalisation_observation": "interne_bornee_moins1_plus1",
+    "adoption_entrainement": [0.5, 1.0],
+    "jeu_scenarios": "data/generated_variable/train"
+  },
+  "recompense": {
+    "poids_energie_pilotable": 2.0,
+    "poids_inconfort": 0.25,
+    "poids_progression_budget": 20.0,
+    "bonus_survie_pas": 0.02,
+    "penalite_non_servie": 50.0,
+    "penalite_tache_inachevee": 10.0,
+    "penalite_coupure": 150.0,
+    "penalite_changement": 0.05,
+    "penalite_action_invalide": 0.05,
+    "bonus_date_cible": 150.0
+  },
+  "recherche": {
+    "learning_rate": [0.0001, 0.0003],
+    "gamma": [0.99, 0.995],
+    "pas_par_configuration": 100000,
+    "seeds": [17, 29]
+  },
+  "dqn": {
+    "total_timesteps": 500000,
+    "learning_rate": 0.0003,
+    "gamma": 0.995,
+    "buffer_size": 100000,
+    "learning_starts": 5000,
+    "batch_size": 128,
+    "exploration_fraction": 0.35,
+    "exploration_final_eps": 0.05,
+    "train_freq": 4,
+    "gradient_steps": 1,
+    "target_update_interval": 5000,
+    "net_arch": [256, 256],
+    "seeds_finales": [17, 29, 43]
+  }
+}

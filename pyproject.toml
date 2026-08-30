@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "woyofal-rl"
+version = "0.3.0"
+description = "Simulation et apprentissage par renforcement pour un budget Woyofal"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "numpy>=1.26,<2",
+  "pandas>=2.1,<2.2",
+  "rampdemand==0.5.0",
+  "gymnasium==1.2.3",
+  "stable-baselines3==2.8.0",
+  "matplotlib==3.10.5",
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.30,<1"
+]
+
+[project.scripts]
+woyofal = "woyofal.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "common*", "env*", "evaluation*",
+  "ramp_adapter*", "rl*", "thermal*", "woyofal*"
+]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra -p no:cacheprovider"
+asyncio_default_fixture_loop_scope = "function"

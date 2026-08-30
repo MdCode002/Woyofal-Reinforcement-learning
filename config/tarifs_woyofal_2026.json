@@ -1,0 +1,13 @@
+{
+  "version": "DPP-2026-simplifiee",
+  "devise": "FCFA",
+  "tranches_energie": [
+    {"debut_kwh": 0, "fin_kwh": 150, "prix_fcfa_par_kwh": 82.0},
+    {"debut_kwh": 150, "fin_kwh": null, "prix_fcfa_par_kwh": 136.49}
+  ],
+  "avertissement": "Conversion indicative de l'énergie seule. Les taxes, redevances, arrondis et dettes du compteur ne sont pas reproduits exactement.",
+  "sources": [
+    "https://www.crse.sn/nouvelle-grille-tarifaire-du-secteur-de-lelectricite/",
+    "https://www.senelec.sn/woyofal/grille-tarifaire/"
+  ]
+}

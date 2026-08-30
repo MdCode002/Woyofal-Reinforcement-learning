@@ -19,6 +19,33 @@ results/figures/*
 results/evaluations/*
 results/models/*
 !results/**/.gitkeep
+!results/evaluations/variable_validation_3seeds/
+!results/evaluations/variable_validation_3seeds/**
+!results/evaluations/variable_test_final/
+!results/evaluations/variable_test_final/**
+!results/models/selection.json
+!results/models/production/
+!results/models/production/**
+!results/models/comparison/
+!results/models/comparison/**
+results/models/comparison/dqn_*
+results/models/comparison/RESUME_MODELES.json
 
 tmp/
+data/generated/
+data/generated_variable/*
+!data/generated_variable/test/
+data/generated_variable/test/*
+!data/generated_variable/test/manifest.sha256
+!data/generated_variable/test/*.json
+data/weather/cache/
+!data/weather/cache/
+data/weather/cache/*
+!data/weather/cache/dakar_2018_2025.csv
+!data/weather/cache/dakar_2018_2025.metadata.json
 
+frontend/node_modules/
+frontend/.nuxt/
+frontend/.output/
+frontend/*.tsbuildinfo
+.pnpm-store/

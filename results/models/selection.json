@@ -1,0 +1,13 @@
+{
+  "algorithme": "dqn",
+  "chemin": "results/models/production/modele.zip",
+  "version_schema": "politique_partagee_pieces_variables_v3",
+  "seed": 17,
+  "timesteps": 500000,
+  "critere": "modele_dqn_production",
+  "evaluation_test_2025": {
+    "taux_reussite": 0.773,
+    "taux_coupure": 0.403,
+    "taux_reussite_foyers_5_a_8_pieces": 0.657
+  }
+}

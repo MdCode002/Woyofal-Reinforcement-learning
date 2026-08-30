@@ -1,0 +1,132 @@
+{
+  "identifiant_foyer": "test-016",
+  "nombre_occupants": 7,
+  "credit_initial_kwh": 58.699,
+  "date_debut": "2025-05-24T00:00:00+00:00",
+  "date_cible": null,
+  "horizon_max_minutes": 43200,
+  "appareils": [
+    {
+      "nom": "Éclairage LED",
+      "categorie": "eclairage",
+      "puissance_w": 9,
+      "quantite": 5,
+      "flexible": false,
+      "decalage_autorise": false,
+      "essentiel": true,
+      "controle_par_environnement": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "05:30:00",
+          "heure_fin": "07:00:00",
+          "probabilite_utilisation": 0.55,
+          "duree_moyenne_minutes": 60,
+          "variabilite_minutes": 15
+        },
+        {
+          "heure_debut": "18:30:00",
+          "heure_fin": "23:30:00",
+          "probabilite_utilisation": 0.95,
+          "duree_moyenne_minutes": 240,
+          "variabilite_minutes": 45
+        }
+      ],
+      "variabilite_puissance_pourcent": 0.1
+    },
+    {
+      "nom": "Lave-linge",
+      "categorie": "charge_decalable",
+      "puissance_w": 500,
+      "quantite": 1,
+      "flexible": true,
+      "decalage_autorise": true,
+      "essentiel": false,
+      "controle_par_environnement": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "08:00:00",
+          "heure_fin": "18:00:00",
+          "probabilite_utilisation": 0.2,
+          "duree_moyenne_minutes": 90,
+          "variabilite_minutes": 30
+        }
+      ],
+      "variabilite_puissance_pourcent": 0.1
+    },
+    {
+      "nom": "Décodeur, routeur, chargeurs et veilles",
+      "categorie": "petits_appareils",
+      "puissance_w": 35,
+      "quantite": 1,
+      "flexible": false,
+      "decalage_autorise": false,
+      "essentiel": false,
+      "controle_par_environnement": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "00:00:00",
+          "heure_fin": "23:59:00",
+          "probabilite_utilisation": 1.0,
+          "duree_moyenne_minutes": 1440,
+          "variabilite_minutes": 0
+        }
+      ],
+      "variabilite_puissance_pourcent": 0.1
+    },
+    {
+      "nom": "Réfrigérateur",
+      "categorie": "froid",
+      "puissance_w": 120,
+      "quantite": 1,
+      "flexible": false,
+      "decalage_autorise": false,
+      "essentiel": true,
+      "controle_par_environnement": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "00:00:00",
+          "heure_fin": "23:59:00",
+          "probabilite_utilisation": 1.0,
+          "duree_moyenne_minutes": 1440,
+          "variabilite_minutes": 0
+        }
+      ],
+      "variabilite_puissance_pourcent": 0.1
+    }
+  ],
+  "pieces": [
+    {
+      "nom": "Salon",
+      "type_piece": "salon",
+      "taille": "grande",
+      "climatisation": false,
+      "ventilateur": true,
+      "puissance_climatisation_w": null,
+      "puissance_ventilateur_w": 45.0,
+      "profil_occupation": "soiree"
+    }
+  ],
+  "parametres_thermiques": {
+    "resistance_c_par_kw": 6.8963,
+    "capacite_kwh_par_c": 0.2695,
+    "cop_climatisation": 3.647,
+    "puissance_climatisation_electrique_kw": 0.0,
+    "gains_internes_kw": 0.132,
+    "coefficient_gains_solaires": 0.00072,
+    "temperature_confort_min_c": 22.0,
+    "temperature_confort_max_c": 27.0,
+    "gain_confort_ventilateur_c": 1.5
+  },
+  "historique_compteur": {
+    "consommation_mois_precedent_kwh": 74.77,
+    "consommation_mois_courant_kwh": 34.64,
+    "consommation_veille_kwh": 3.17,
+    "puissance_instantanee_w": null
+  },
+  "pas_minutes": 30,
+  "sous_pas_thermique_minutes": 5,
+  "source_meteo": "cache_open_meteo_era5",
+  "occupation_initiale": true,
+  "taux_adoption": 1.0,
+  "seed": 20290839
+}

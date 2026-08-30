@@ -1,0 +1,7 @@
+{
+  "repere_dpp_kwh_mois": 80.0,
+  "avertissement": "Repère agrégé dérivé, pas une vérité représentative de tous les foyers sénégalais.",
+  "heure_debut_pointe_soir": 18,
+  "heure_fin_pointe_soir": 23,
+  "seuil_ratio_pointe_soir": 1.1
+}

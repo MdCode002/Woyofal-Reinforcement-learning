@@ -1,0 +1,152 @@
+{
+  "identifiant_foyer": "test-012",
+  "nombre_occupants": 8,
+  "credit_initial_kwh": 65.655,
+  "date_debut": "2025-03-28T00:00:00+00:00",
+  "date_cible": "2025-04-18T00:00:00+00:00",
+  "horizon_max_minutes": 43200,
+  "appareils": [
+    {
+      "nom": "Éclairage LED",
+      "categorie": "eclairage",
+      "puissance_w": 9,
+      "quantite": 5,
+      "flexible": false,
+      "decalage_autorise": false,
+      "essentiel": true,
+      "controle_par_environnement": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "05:30:00",
+          "heure_fin": "07:00:00",
+          "probabilite_utilisation": 0.55,
+          "duree_moyenne_minutes": 60,
+          "variabilite_minutes": 15
+        },
+        {
+          "heure_debut": "18:30:00",
+          "heure_fin": "23:30:00",
+          "probabilite_utilisation": 0.95,
+          "duree_moyenne_minutes": 240,
+          "variabilite_minutes": 45
+        }
+      ],
+      "variabilite_puissance_pourcent": 0.1
+    },
+    {
+      "nom": "Décodeur, routeur, chargeurs et veilles",
+      "categorie": "petits_appareils",
+      "puissance_w": 35,
+      "quantite": 1,
+      "flexible": false,
+      "decalage_autorise": false,
+      "essentiel": false,
+      "controle_par_environnement": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "00:00:00",
+          "heure_fin": "23:59:00",
+          "probabilite_utilisation": 1.0,
+          "duree_moyenne_minutes": 1440,
+          "variabilite_minutes": 0
+        }
+      ],
+      "variabilite_puissance_pourcent": 0.1
+    },
+    {
+      "nom": "Réfrigérateur",
+      "categorie": "froid",
+      "puissance_w": 120,
+      "quantite": 1,
+      "flexible": false,
+      "decalage_autorise": false,
+      "essentiel": true,
+      "controle_par_environnement": false,
+      "fenetres_usage": [
+        {
+          "heure_debut": "00:00:00",
+          "heure_fin": "23:59:00",
+          "probabilite_utilisation": 1.0,
+          "duree_moyenne_minutes": 1440,
+          "variabilite_minutes": 0
+        }
+      ],
+      "variabilite_puissance_pourcent": 0.1
+    }
+  ],
+  "pieces": [
+    {
+      "nom": "Chambre 1",
+      "type_piece": "chambre",
+      "taille": "petite",
+      "climatisation": false,
+      "ventilateur": true,
+      "puissance_climatisation_w": null,
+      "puissance_ventilateur_w": 55.0,
+      "profil_occupation": "nuit"
+    },
+    {
+      "nom": "Chambre 2",
+      "type_piece": "chambre",
+      "taille": "moyenne",
+      "climatisation": false,
+      "ventilateur": true,
+      "puissance_climatisation_w": null,
+      "puissance_ventilateur_w": null,
+      "profil_occupation": "nuit"
+    },
+    {
+      "nom": "Pièce polyvalente 1",
+      "type_piece": "autre",
+      "taille": "petite",
+      "climatisation": false,
+      "ventilateur": true,
+      "puissance_climatisation_w": null,
+      "puissance_ventilateur_w": 45.0,
+      "profil_occupation": "journee"
+    },
+    {
+      "nom": "Chambre 3",
+      "type_piece": "chambre",
+      "taille": "moyenne",
+      "climatisation": false,
+      "ventilateur": false,
+      "puissance_climatisation_w": null,
+      "puissance_ventilateur_w": null,
+      "profil_occupation": "nuit"
+    },
+    {
+      "nom": "Chambre 4",
+      "type_piece": "chambre",
+      "taille": "petite",
+      "climatisation": false,
+      "ventilateur": true,
+      "puissance_climatisation_w": null,
+      "puissance_ventilateur_w": null,
+      "profil_occupation": "nuit"
+    }
+  ],
+  "parametres_thermiques": {
+    "resistance_c_par_kw": 4.8297,
+    "capacite_kwh_par_c": 0.3036,
+    "cop_climatisation": 3.131,
+    "puissance_climatisation_electrique_kw": 0.0,
+    "gains_internes_kw": 0.193,
+    "coefficient_gains_solaires": 0.000308,
+    "temperature_confort_min_c": 22.0,
+    "temperature_confort_max_c": 27.0,
+    "gain_confort_ventilateur_c": 1.5
+  },
+  "historique_compteur": {
+    "consommation_mois_precedent_kwh": 88.44,
+    "consommation_mois_courant_kwh": 51.97,
+    "consommation_veille_kwh": 3.32,
+    "puissance_instantanee_w": null
+  },
+  "pas_minutes": 30,
+  "sous_pas_thermique_minutes": 5,
+  "source_meteo": "cache_open_meteo_era5",
+  "occupation_initiale": true,
+  "taux_adoption": 1.0,
+  "seed": 20290835
+}

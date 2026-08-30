@@ -1,0 +1,13 @@
+{
+  "source": "Open-Meteo Historical Weather API / ERA5",
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=14.7167&longitude=-17.4677&start_date=2018-01-01&end_date=2025-12-31&hourly=temperature_2m%2Crelative_humidity_2m%2Cshortwave_radiation&timezone=UTC",
+  "coordonnees": {
+    "latitude": 14.7167,
+    "longitude": -17.4677
+  },
+  "periode": [
+    "2018-01-01",
+    "2025-12-31"
+  ],
+  "date_telechargement_utc": "2026-08-23T04:07:26.168127+00:00"
+}

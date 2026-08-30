@@ -1,0 +1,38 @@
+FROM python:3.11-slim AS runtime
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+WORKDIR /app
+
+RUN groupadd --system woyofal && useradd --system --gid woyofal --home-dir /app woyofal
+
+COPY requirements-api.txt pyproject.toml ./
+# Le service d'inférence tourne sur CPU. Installer PyTorch depuis l'index CPU
+# évite d'embarquer CUDA/cuDNN et plusieurs gigaoctets inutiles sur le VPS.
+RUN python -m pip install --no-cache-dir \
+      --index-url https://download.pytorch.org/whl/cpu \
+      torch==2.8.0 \
+    && python -m pip install --no-cache-dir -r requirements-api.txt
+
+COPY common ./common
+COPY config ./config
+COPY data/scenarios ./data/scenarios
+COPY data/weather ./data/weather
+COPY env ./env
+COPY evaluation ./evaluation
+COPY ramp_adapter ./ramp_adapter
+COPY results/models ./results/models
+COPY rl ./rl
+COPY thermal ./thermal
+COPY woyofal ./woyofal
+
+RUN chown -R woyofal:woyofal /app
+USER woyofal
+
+EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=5s --start-period=45s --retries=3 \
+  CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)" || exit 1
+
+CMD ["uvicorn", "woyofal.api:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]

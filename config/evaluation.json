@@ -1,0 +1,8 @@
+{
+  "politiques": ["tout_allume", "horaires_fixes", "economie_maximale", "gloutonne", "dqn", "ppo"],
+  "seeds": [101, 211, 307, 401, 503],
+  "taux_adoption": [1.0, 0.75, 0.5],
+  "ordre_selection": ["taux_reussite_desc", "taux_coupure_asc", "inconfort_asc", "energie_asc", "changements_asc"],
+  "ablations": ["sans_historique", "sans_credit_observable", "sans_inertie", "sans_randomisation"],
+  "test_manifeste": "data/generated_variable/test/manifest.sha256"
+}

@@ -1,0 +1,81 @@
+{
+  "date_utc": "2026-08-24T01:37:43.455431+00:00",
+  "algorithme": "dqn",
+  "seed": 17,
+  "commit_git": "98773c7946c6eeca9218f888ba62b4d3199ab13c",
+  "branche_git": "m1-m4-integration",
+  "etat_git": "M .gitignore\n M README.md\n M common/README.md\n M common/__init__.py\n M common/models.py\n M common/units.py\n M data/scenarios/foyer_fictif.json\n D docs/CONTRATS_EQUIPE.md\n M env/README.md\n D ramp/README.md\n M requirements.txt\n M results/README.md\n M rl/README.md\n D sprint0/requirements.txt\n D sprint0/sprint0_foyer_fictif_24h.csv\n D sprint0/sprint0_installation_ramp.py\n D sprint1/catalogue.py\n D sprint1/requirements.txt\n D sprint1/simulation_ramp_dakar_corrige.py\n D sprint2/catalogue.py\n D sprint2/profils_agreges_30min.csv\n D sprint2/profils_stochastiques.csv\n D sprint2/simulation_stochastique.py\n D sprint3/calibration.py\n D sprint3/catalogue.py\n D sprint3/fiches_compteur_woyofal.csv\n M tests/README.md\n M thermal/README.md\n M woyofal/README.md\n?? DOCUMENTATION_TECHNIQUE.md\n?? GUIDE_GRAND_PUBLIC.md\n?? config/\n?? data/generated/\n?? data/generated_variable/\n?? data/scenarios/profils/\n?? data/scenarios/saisie_simple_exemple.json\n?? env/__init__.py\n?? env/factory.py\n?? env/multi_scenario.py\n?? env/room_env.py\n?? env/woyofal_env.py\n?? evaluation/\n?? kattan/\n?? output/\n?? pyproject.toml\n?? ramp_adapter/\n?? results/evaluations/\n?? results/models/\n?? rl/__init__.py\n?? rl/config.py\n?? rl/pipeline.py\n?? rl/profile_inference.py\n?? rl/reproducibility.py\n?? rl/reward.py\n?? rl/train.py\n?? rl/training_plots.py\n?? tests/conftest.py\n?? tests/test_common.py\n?? tests/test_environment.py\n?? tests/test_physique.py\n?? tests/test_ramp_adapter.py\n?? tests/test_scenarios_api.py\n?? tests/test_training_smoke.py\n?? thermal/__init__.py\n?? thermal/model_1r1c.py\n?? tools/\n?? woyofal/__init__.py\n?? woyofal/meter.py",
+  "python": "3.10.11",
+  "numpy": "1.26.4",
+  "gymnasium": "1.2.3",
+  "stable_baselines3": "2.8.0",
+  "configuration": {
+    "environnement": {
+      "version_schema": "politique_partagee_pieces_variables_v3",
+      "pas_decision_minutes": 30,
+      "sous_pas_thermique_minutes": 5,
+      "horizon_sans_date_jours": 30,
+      "actions_discretes": 10,
+      "dimensions_observation": 33,
+      "normalisation_observation": "interne_bornee_moins1_plus1",
+      "adoption_entrainement": [
+        0.5,
+        1.0
+      ],
+      "jeu_scenarios": "data/generated_variable/train"
+    },
+    "recompense": {
+      "poids_energie_pilotable": 2.0,
+      "poids_inconfort": 0.25,
+      "poids_progression_budget": 20.0,
+      "bonus_survie_pas": 0.02,
+      "penalite_non_servie": 50.0,
+      "penalite_tache_inachevee": 10.0,
+      "penalite_coupure": 150.0,
+      "penalite_changement": 0.05,
+      "penalite_action_invalide": 0.05,
+      "bonus_date_cible": 150.0
+    },
+    "recherche": {
+      "learning_rate": [
+        0.0001,
+        0.0003
+      ],
+      "gamma": [
+        0.99,
+        0.995
+      ],
+      "pas_par_configuration": 100000,
+      "seeds": [
+        17,
+        29
+      ]
+    },
+    "dqn": {
+      "total_timesteps": 500000,
+      "learning_rate": 0.0003,
+      "gamma": 0.995,
+      "buffer_size": 100000,
+      "learning_starts": 5000,
+      "batch_size": 128,
+      "exploration_fraction": 0.35,
+      "exploration_final_eps": 0.05,
+      "train_freq": 4,
+      "gradient_steps": 1,
+      "target_update_interval": 5000,
+      "net_arch": [
+        256,
+        256
+      ],
+      "seeds_finales": [
+        17,
+        29,
+        43
+      ]
+    },
+    "execution": {
+      "total_timesteps": 500000,
+      "modele_initial": null
+    }
+  }
+}

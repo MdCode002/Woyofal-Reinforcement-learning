@@ -1,96 +1,44 @@
 {
-  "identifiant_foyer": "foyer-fictif-001",
-  "nombre_occupants": 3,
+  "identifiant_foyer": "fixture-standard-dakar",
+  "nombre_occupants": 5,
   "credit_initial_kwh": 20.0,
-  "date_debut": "2026-08-13T00:00:00+00:00",
-  "date_cible": "2026-08-18T00:00:00+00:00",
-  "pas_minutes": 30,
-  "temperature_interieure_initiale_c": 28.0,
-  "source_temperature_interieure": "estimee",
-  "temperature_exterieure_initiale_c": 32.0,
-  "humidite_initiale_pourcent": 78.0,
-  "source_meteo": "exemple_fictif_sprint_0",
-  "occupation_initiale": true,
-  "appareils": [
+  "date_debut": "2025-08-10T00:00:00+00:00",
+  "date_cible": "2025-08-17T00:00:00+00:00",
+  "horizon_max_minutes": 10080,
+  "source_meteo": "fixture_deterministe",
+  "taux_adoption": 1.0,
+  "seed": 42,
+  "historique_compteur": {"consommation_mois_precedent_kwh": 92.0, "consommation_mois_courant_kwh": 38.0, "consommation_veille_kwh": 3.1},
+  "pieces": [
     {
-      "nom": "television",
-      "puissance_w": 80.0,
-      "flexible": false,
-      "decalage_autorise": false,
-      "essentiel": false,
-      "fenetres_usage": [
-        {
-          "heure_debut": "18:00",
-          "heure_fin": "23:00",
-          "probabilite_utilisation": 0.85,
-          "duree_moyenne_minutes": 180,
-          "variabilite_minutes": 60
-        }
-      ]
+      "nom": "Chambre 1", "type_piece": "chambre", "taille": "moyenne",
+      "climatisation": true, "ventilateur": true,
+      "puissance_climatisation_w": 1200, "puissance_ventilateur_w": 55,
+      "profil_occupation": "nuit"
     },
     {
-      "nom": "refrigerateur",
-      "puissance_w": 150.0,
-      "flexible": false,
-      "decalage_autorise": false,
-      "essentiel": true,
-      "fenetres_usage": [
-        {
-          "heure_debut": "00:00",
-          "heure_fin": "00:00",
-          "probabilite_utilisation": 1.0,
-          "duree_moyenne_minutes": 1440,
-          "variabilite_minutes": 0
-        }
-      ]
+      "nom": "Salon", "type_piece": "salon", "taille": "grande",
+      "climatisation": false, "ventilateur": true,
+      "puissance_climatisation_w": null, "puissance_ventilateur_w": null,
+      "profil_occupation": "soiree"
     },
     {
-      "nom": "ventilateur",
-      "puissance_w": 60.0,
-      "flexible": true,
-      "decalage_autorise": false,
-      "essentiel": false,
-      "fenetres_usage": [
-        {
-          "heure_debut": "12:00",
-          "heure_fin": "23:00",
-          "probabilite_utilisation": 0.70,
-          "duree_moyenne_minutes": 240,
-          "variabilite_minutes": 90
-        }
-      ]
-    },
-    {
-      "nom": "climatisation",
-      "puissance_w": 900.0,
-      "flexible": true,
-      "decalage_autorise": false,
-      "essentiel": false,
-      "fenetres_usage": [
-        {
-          "heure_debut": "20:00",
-          "heure_fin": "06:00",
-          "probabilite_utilisation": 0.55,
-          "duree_moyenne_minutes": 240,
-          "variabilite_minutes": 60
-        }
-      ]
-    },
-    {
-      "nom": "fer_a_repasser",
-      "puissance_w": 1200.0,
-      "flexible": true,
-      "decalage_autorise": true,
-      "essentiel": false,
-      "fenetres_usage": [
-        {
-          "heure_debut": "17:00",
-          "heure_fin": "20:00",
-          "probabilite_utilisation": 0.30,
-          "duree_moyenne_minutes": 30,
-          "variabilite_minutes": 15
-        }
-      ]
+      "nom": "Chambre 2", "type_piece": "chambre", "taille": "petite",
+      "climatisation": true, "ventilateur": false,
+      "puissance_climatisation_w": null, "puissance_ventilateur_w": null,
+      "profil_occupation": "nuit"
     }
+  ],
+  "parametres_thermiques": {
+    "resistance_c_par_kw": 6.0, "capacite_kwh_par_c": 0.35, "cop_climatisation": 3.2,
+    "puissance_climatisation_electrique_kw": 1.2, "gains_internes_kw": 0.15,
+    "coefficient_gains_solaires": 0.002, "temperature_confort_min_c": 22.0,
+    "temperature_confort_max_c": 27.0, "gain_confort_ventilateur_c": 1.5
+  },
+  "appareils": [
+    {"nom": "Éclairage LED", "categorie": "eclairage", "puissance_w": 9, "quantite": 5, "flexible": false, "decalage_autorise": false, "essentiel": true, "controle_par_environnement": false, "fenetres_usage": [{"heure_debut": "18:30", "heure_fin": "23:30", "probabilite_utilisation": 0.95, "duree_moyenne_minutes": 240, "variabilite_minutes": 45}]},
+    {"nom": "Télévision", "categorie": "audiovisuel", "puissance_w": 75, "quantite": 1, "flexible": true, "decalage_autorise": false, "essentiel": false, "controle_par_environnement": false, "fenetres_usage": [{"heure_debut": "18:00", "heure_fin": "23:30", "probabilite_utilisation": 0.8, "duree_moyenne_minutes": 210, "variabilite_minutes": 45}]},
+    {"nom": "Réfrigérateur", "categorie": "froid", "puissance_w": 120, "quantite": 1, "flexible": false, "decalage_autorise": false, "essentiel": true, "controle_par_environnement": false, "fenetres_usage": [{"heure_debut": "00:00", "heure_fin": "23:59", "probabilite_utilisation": 1.0, "duree_moyenne_minutes": 1440, "variabilite_minutes": 0}]},
+    {"nom": "Fer à repasser", "categorie": "charge_decalable", "puissance_w": 1200, "quantite": 1, "flexible": true, "decalage_autorise": true, "essentiel": false, "controle_par_environnement": false, "fenetres_usage": [{"heure_debut": "06:00", "heure_fin": "20:00", "probabilite_utilisation": 0.3, "duree_moyenne_minutes": 30, "variabilite_minutes": 15}]}
   ]
 }

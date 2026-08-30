@@ -1,0 +1,33 @@
+{
+  "identifiant_foyer": "foyer-demo-7-pieces",
+  "nombre_occupants": 8,
+  "credit_initial_kwh": 55.0,
+  "date_debut": "2025-11-03T20:00:00+00:00",
+  "date_cible": "2025-11-10T20:00:00+00:00",
+  "source_meteo": "fixture_deterministe",
+  "taux_adoption": 1.0,
+  "seed": 731,
+  "pieces": [
+    {"nom": "Salon", "type_piece": "salon", "taille": "grande", "nombre_climatiseurs": 1, "nombre_ventilateurs": 2, "profil_occupation": "soiree"},
+    {"nom": "Chambre 1", "type_piece": "chambre", "taille": "moyenne", "nombre_climatiseurs": 1, "nombre_ventilateurs": 1, "profil_occupation": "nuit"},
+    {"nom": "Chambre 2", "type_piece": "chambre", "taille": "petite", "nombre_climatiseurs": 0, "nombre_ventilateurs": 1, "profil_occupation": "nuit"},
+    {"nom": "Chambre 3", "type_piece": "chambre", "taille": "moyenne", "nombre_climatiseurs": 1, "nombre_ventilateurs": 0, "profil_occupation": "nuit"},
+    {"nom": "Chambre 4", "type_piece": "chambre", "taille": "petite", "nombre_climatiseurs": 0, "nombre_ventilateurs": 1, "profil_occupation": "variable"},
+    {"nom": "Chambre 5", "type_piece": "chambre", "taille": "moyenne", "nombre_climatiseurs": 1, "nombre_ventilateurs": 1, "profil_occupation": "nuit"},
+    {"nom": "Chambre 6", "type_piece": "chambre", "taille": "grande", "nombre_climatiseurs": 1, "nombre_ventilateurs": 2, "profil_occupation": "nuit"}
+  ],
+  "appareils": [
+    {"type_appareil": "eclairage_led", "quantite": 14},
+    {"type_appareil": "television", "quantite": 3, "puissance_w": 85},
+    {"type_appareil": "refrigerateur", "quantite": 1},
+    {"type_appareil": "congelateur", "quantite": 1},
+    {"type_appareil": "petits_appareils", "quantite": 1},
+    {"type_appareil": "fer", "quantite": 1},
+    {"type_appareil": "pompe_eau", "quantite": 1},
+    {"type_appareil": "lave_linge", "quantite": 1}
+  ],
+  "historique_compteur": {
+    "consommation_mois_precedent_kwh": 145.0,
+    "consommation_veille_kwh": 4.8
+  }
+}

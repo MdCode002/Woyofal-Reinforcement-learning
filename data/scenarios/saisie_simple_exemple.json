@@ -1,0 +1,39 @@
+{
+  "identifiant_foyer": "exemple-dakar",
+  "nombre_occupants": 5,
+  "credit_initial_kwh": 20.0,
+  "date_debut": "2025-08-10T00:00:00+00:00",
+  "date_cible": "2025-08-17T00:00:00+00:00",
+  "pieces": [
+    {
+      "nom": "Chambre 1",
+      "type_piece": "chambre",
+      "taille": "moyenne",
+      "climatisation": true,
+      "ventilateur": true,
+      "nombre_climatiseurs": 1,
+      "nombre_ventilateurs": 1
+    },
+    {
+      "nom": "Salon",
+      "type_piece": "salon",
+      "taille": "grande",
+      "climatisation": false,
+      "ventilateur": true,
+      "nombre_climatiseurs": 0,
+      "nombre_ventilateurs": 2
+    }
+  ],
+  "appareils": [
+    {"type_appareil": "eclairage_led", "quantite": 7},
+    {"type_appareil": "television", "quantite": 2},
+    {"type_appareil": "refrigerateur", "quantite": 1},
+    {"type_appareil": "petits_appareils", "quantite": 1},
+    {"type_appareil": "fer", "quantite": 1},
+    {"type_appareil": "lave_linge", "quantite": 1}
+  ],
+  "historique_compteur": {
+    "consommation_mois_precedent_kwh": 92.0,
+    "consommation_veille_kwh": 3.1
+  }
+}
