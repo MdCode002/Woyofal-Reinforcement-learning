@@ -7,9 +7,9 @@ services:
     restart: unless-stopped
     init: true
     environment:
-      WOYOFAL_CORS_ORIGINS: "http://localhost:3000"
-    ports:
-      - "8000:8000"
+      WOYOFAL_CORS_ORIGINS: "http://localhost:3000,http://127.0.0.1:3000,http://web:3000"
+    expose:
+      - "8000"
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
       interval: 30s
@@ -26,8 +26,10 @@ services:
     init: true
     environment:
       NUXT_WOYOFAL_API_URL: "http://api:8000"
+    expose:
+      - "3000"
     ports:
-      - "3000:3000"
+      - "${PORT_WEB:-3000}:3000"
     depends_on:
       api:
         condition: service_healthy
