@@ -1,6 +1,6 @@
 """Environnement public du projet."""
 
-from .factory import creer_environnement, creer_environnement_multi
+from .factory import creer_environnement, creer_environnement_multi, verifier_gymnasium
 from .multi_scenario import EnvironnementMultiScenario
 from .room_env import EnvironnementPiece
 from .woyofal_env import (
@@ -13,6 +13,6 @@ from .woyofal_env import (
 
 __all__ = [
     "EnvironnementWoyofal", "EnvironnementPiece", "EnvironnementMultiScenario",
-    "creer_environnement", "creer_environnement_multi",
+    "creer_environnement", "creer_environnement_multi", "verifier_gymnasium",
     "decoder_action", "encoder_action", "NOMBRE_ACTIONS", "DIMENSION_OBSERVATION",
 ]

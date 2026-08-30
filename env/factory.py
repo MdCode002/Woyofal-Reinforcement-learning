@@ -40,3 +40,13 @@ def creer_environnement_multi(
         taux_adoption=taux_adoption,
         ablation=ablation,
     )
+
+
+def verifier_gymnasium() -> None:
+    from gymnasium.utils.env_checker import check_env
+
+    env = creer_environnement()
+    check_env(env, skip_render_check=True)
+    if env._environnements_pieces:
+        check_env(env._environnements_pieces[0], skip_render_check=True)
+
